@@ -1,0 +1,7 @@
+torch
+torchvision
+onnx
+onnxscript
+tensorrt
+scapy
+numpy

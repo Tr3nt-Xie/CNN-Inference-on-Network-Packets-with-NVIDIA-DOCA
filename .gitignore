@@ -1,0 +1,23 @@
+# Generated models and engines (rebuild on each GPU)
+models/
+*.onnx
+*.onnx.data
+*.engine
+
+# Large generated data
+*.pcap
+*.bin
+!results/**/*.bin
+
+# Build outputs
+build/
+part4_dpdk/dpdk_rx
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+
+# Never commit keys
+*.pem
+id_*
