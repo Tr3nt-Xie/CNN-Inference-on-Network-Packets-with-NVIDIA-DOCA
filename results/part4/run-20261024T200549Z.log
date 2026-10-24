@@ -1,0 +1,27 @@
+# Part 4 run 2026-10-24T20:05:50Z on 5be57b604850, DPDK 21.11.9
+## inorder (data/part3/images.pcap)
+TELEMETRY: No legacy callbacks, legacy socket not created
+stopped: idle (idle timeout 200 ms)
+rx=1728 accepted=1728 duplicates=0 drop_other_port=0 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 16 complete of 16 seen -> data/part4/frames_rx_inorder.bin (+ .ids.json); receive window 1.808 ms
+cmp original.bin: identical (16/16 byte for byte)
+## shuffled (data/part3/images_shuffled.pcap)
+TELEMETRY: No legacy callbacks, legacy socket not created
+stopped: idle (idle timeout 200 ms)
+rx=1728 accepted=1728 duplicates=0 drop_other_port=0 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 16 complete of 16 seen -> data/part4/frames_rx_shuffled.bin (+ .ids.json); receive window 0.982 ms
+cmp original.bin: identical (16/16 byte for byte)
+## stress (data/part3/images_stress.pcap)
+TELEMETRY: No legacy callbacks, legacy socket not created
+stopped: idle (idle timeout 200 ms)
+rx=1798 accepted=1728 duplicates=50 drop_other_port=20 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 16 complete of 16 seen -> data/part4/frames_rx_stress.bin (+ .ids.json); receive window 1.974 ms
+cmp original.bin: identical (16/16 byte for byte)
+## missing (data/part4/images_missing.pcap)
+TELEMETRY: No legacy callbacks, legacy socket not created
+frame 5: incomplete, 105/108 chunks; missing seq 0 50 107
+stopped: idle (idle timeout 200 ms)
+rx=1725 accepted=1725 duplicates=0 drop_other_port=0 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 15 complete of 16 seen -> data/part4/frames_rx_missing.bin (+ .ids.json); receive window 1.133 ms
+(exit status 1)
+cmp original.bin: differs; ids written: [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
