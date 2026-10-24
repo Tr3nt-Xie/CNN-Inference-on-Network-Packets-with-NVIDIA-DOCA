@@ -1,0 +1,53 @@
+Development run: synthetic fixtures only; real Part 3/4 data is not present.
+Run ID: 20261024T013628Z
+test_cli_validation_pass_failure_and_no_gpu_claim (test_frame_io.FrameTests) ... ok
+test_dtype_and_layout_are_not_silently_converted (test_frame_io.FrameTests) ... ok
+test_duplicate_and_invalid_ids_rejected (test_frame_io.FrameTests) ... ok
+test_header_prefixed_file_rejected (test_frame_io.FrameTests) ... ok
+test_missing_frame_id_rejected_even_when_count_matches (test_frame_io.FrameTests) ... ok
+test_numbered_png_directory_preserves_frame_ids (test_frame_io.FrameTests) ... ok
+test_raw_matches_original_exactly (test_frame_io.FrameTests) ... ok
+test_shuffled_completion_order_is_aligned_by_explicit_ids (test_frame_io.FrameTests) ... ok
+test_single_corrupted_byte_cannot_pass (test_frame_io.FrameTests) ... ok
+test_truncated_and_missing_frames_rejected (test_frame_io.FrameTests) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.482s
+
+OK
+/home/ubuntu/lab8/part2_tensorrt/export_onnx.py:28: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+exported models/resnet18_fp16.onnx
+  input input: FLOAT16 ['batch', 3, 224, 224]
+  output logits: FLOAT16 ['batch', 1000]
+TensorRT 11.4.0.106: models/resnet18_fp16.onnx -> models/resnet18_fp16.engine
+  input input DataType.HALF batch min/opt/max = 1/8/32
+  output logits DataType.HALF
+  built in 11.9 s, 22.5 MiB
+Synthetic fixtures written to part5_classify/test_data/synthetic; do not report them as DPDK reassembly evidence.
+synthetic_ordered: 16/16 frames byte-identical
+synthetic_shuffled: 16/16 frames byte-identical
+synthetic_ordered: 16/16 top-1 classes match
+synthetic_shuffled: 16/16 top-1 classes match
+Pinned H2D batch 1: 0.026788 ms, 5.619 GB/s
+Pinned H2D batch 8: 0.195369 ms, 6.164 GB/s
+Pinned H2D batch 16: 0.387235 ms, 6.220 GB/s
+Part 5: PASS_SYNTHETIC_ONLY. Results: results/part5/synthetic-20261024T013628Z
+RESULT_DIR=results/part5/synthetic-20261024T013628Z
+ M part5_classify/README.md
+?? part5_classify/.gitignore
+?? part5_classify/VIDEO_GUIDE_ZH.md
+?? part5_classify/classify.py
+?? part5_classify/frame_io.py
+?? part5_classify/make_test_inputs.py
+?? part5_classify/run_part5.sh
+?? part5_classify/tests/
+?? results/part5/
