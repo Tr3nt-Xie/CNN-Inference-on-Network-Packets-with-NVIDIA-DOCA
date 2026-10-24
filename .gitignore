@@ -21,3 +21,6 @@ venv/
 # Never commit keys
 *.pem
 id_*
+
+# Generated test data (Parts 3-5)
+data/

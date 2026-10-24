@@ -1,0 +1,21 @@
+# Part 3 run 2026-10-24T19:46:41Z on 767caaa84a35
+## in order
+16 images x 108 packets = 1728 data packets (last chunk 728 B) + 0 duplicates + 0 other-port = 1728 packets, shuffled=False, seed=542
+largest IP datagram 1450 B (MTU 1500, 50 B to spare), Ethernet frame 1464 B -> data/part3/images.pcap, originals -> data/part3/original.bin
+accepted=1728 packets=1728
+complete frames 16/16, byte-for-byte matches 16/16 -> /tmp/part3_ref.bin
+## shuffled
+16 images x 108 packets = 1728 data packets (last chunk 728 B) + 0 duplicates + 0 other-port = 1728 packets, shuffled=True, seed=542
+largest IP datagram 1450 B (MTU 1500, 50 B to spare), Ethernet frame 1464 B -> data/part3/images_shuffled.pcap, originals -> data/part3/original.bin
+accepted=1728 packets=1728
+complete frames 16/16, byte-for-byte matches 16/16 -> /tmp/part3_ref.bin
+## shuffled + 50 duplicates + 20 other-port
+16 images x 108 packets = 1728 data packets (last chunk 728 B) + 50 duplicates + 20 other-port = 1798 packets, shuffled=True, seed=542
+largest IP datagram 1450 B (MTU 1500, 50 B to spare), Ethernet frame 1464 B -> data/part3/images_stress.pcap, originals -> data/part3/original.bin
+accepted=1728 drop_other_port=20 duplicates=50 packets=1798
+complete frames 16/16, byte-for-byte matches 16/16 -> /tmp/part3_ref.bin
+## sha256
+b2a855ecd6b867177f8836da167f1f61edc770cf20e8dd43854264a2eb904056  images.pcap
+7dc178657dca64d27b0478d829ab5053e22420e3244f2361e331bcba4fbaf7ff  images_shuffled.pcap
+ac7b5a37ad0427a8d0decb10b08a0a8942fc1a7ef5a01aaf5ed665af740c7094  images_stress.pcap
+9a0af67075959be7f365cdfc8c054f884a759b4bf0760b5e0c4e057ed7eb4c72  original.bin
