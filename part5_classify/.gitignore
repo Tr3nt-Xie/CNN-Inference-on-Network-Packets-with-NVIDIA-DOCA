@@ -1,0 +1,4 @@
+# Generated input fixtures and temporary development data
+test_data/
+__pycache__/
+*.pyc
