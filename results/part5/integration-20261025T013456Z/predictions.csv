@@ -1,0 +1,49 @@
+dataset,frame_id,original_class_id,original_class,received_class_id,received_class,class_equal,different_bytes,max_abs_logit_difference
+inorder,0,281,tabby,281,tabby,True,0,0.0
+inorder,1,164,bluetick,164,bluetick,True,0,0.0
+inorder,2,284,Siamese cat,284,Siamese cat,True,0,0.0
+inorder,3,171,Italian greyhound,171,Italian greyhound,True,0,0.0
+inorder,4,285,Egyptian cat,285,Egyptian cat,True,0,0.0
+inorder,5,237,miniature pinscher,237,miniature pinscher,True,0,0.0
+inorder,6,281,tabby,281,tabby,True,0,0.0
+inorder,7,157,papillon,157,papillon,True,0,0.0
+inorder,8,283,Persian cat,283,Persian cat,True,0,0.0
+inorder,9,174,Norwegian elkhound,174,Norwegian elkhound,True,0,0.0
+inorder,10,281,tabby,281,tabby,True,0,0.0
+inorder,11,224,groenendael,224,groenendael,True,0,0.0
+inorder,12,281,tabby,281,tabby,True,0,0.0
+inorder,13,266,miniature poodle,266,miniature poodle,True,0,0.0
+inorder,14,285,Egyptian cat,285,Egyptian cat,True,0,0.0
+inorder,15,242,boxer,242,boxer,True,0,0.0
+shuffled,0,281,tabby,281,tabby,True,0,0.0
+shuffled,1,164,bluetick,164,bluetick,True,0,0.0
+shuffled,2,284,Siamese cat,284,Siamese cat,True,0,0.0
+shuffled,3,171,Italian greyhound,171,Italian greyhound,True,0,0.0
+shuffled,4,285,Egyptian cat,285,Egyptian cat,True,0,0.0
+shuffled,5,237,miniature pinscher,237,miniature pinscher,True,0,0.0
+shuffled,6,281,tabby,281,tabby,True,0,0.0
+shuffled,7,157,papillon,157,papillon,True,0,0.0
+shuffled,8,283,Persian cat,283,Persian cat,True,0,0.0
+shuffled,9,174,Norwegian elkhound,174,Norwegian elkhound,True,0,0.0
+shuffled,10,281,tabby,281,tabby,True,0,0.0
+shuffled,11,224,groenendael,224,groenendael,True,0,0.0
+shuffled,12,281,tabby,281,tabby,True,0,0.0
+shuffled,13,266,miniature poodle,266,miniature poodle,True,0,0.0
+shuffled,14,285,Egyptian cat,285,Egyptian cat,True,0,0.0
+shuffled,15,242,boxer,242,boxer,True,0,0.0
+stress,0,281,tabby,281,tabby,True,0,0.0
+stress,1,164,bluetick,164,bluetick,True,0,0.0
+stress,2,284,Siamese cat,284,Siamese cat,True,0,0.0
+stress,3,171,Italian greyhound,171,Italian greyhound,True,0,0.0
+stress,4,285,Egyptian cat,285,Egyptian cat,True,0,0.0
+stress,5,237,miniature pinscher,237,miniature pinscher,True,0,0.0
+stress,6,281,tabby,281,tabby,True,0,0.0
+stress,7,157,papillon,157,papillon,True,0,0.0
+stress,8,283,Persian cat,283,Persian cat,True,0,0.0
+stress,9,174,Norwegian elkhound,174,Norwegian elkhound,True,0,0.0
+stress,10,281,tabby,281,tabby,True,0,0.0
+stress,11,224,groenendael,224,groenendael,True,0,0.0
+stress,12,281,tabby,281,tabby,True,0,0.0
+stress,13,266,miniature poodle,266,miniature poodle,True,0,0.0
+stress,14,285,Egyptian cat,285,Egyptian cat,True,0,0.0
+stress,15,242,boxer,242,boxer,True,0,0.0
