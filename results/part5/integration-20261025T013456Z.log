@@ -1,0 +1,41 @@
+Part 5 integration: real cat/dog images, actual DPDK PCAP replay, TensorRT FP16 on T4
+2026-10-25T01:35:03Z
+500160c25fd66b125f6f799048a75e41a29d1f7f Add Part 7 results, analysis plots and report
+Tesla T4, 595.91.07, 0 %
+DPDK 21.11.9
+Verified 16 real-image frames, file transfer hashes, and unmodified teammate/code sources.
+make: Entering directory '/home/ubuntu/lab8/part4_dpdk'
+cc -O2 -g -Wall -Wextra $(pkg-config --cflags libdpdk) dpdk_rx.c -o dpdk_rx $(pkg-config --libs libdpdk)
+make: Leaving directory '/home/ubuntu/lab8/part4_dpdk'
+DPDK case: inorder
+TELEMETRY: No legacy callbacks, legacy socket not created
+stopped: idle (idle timeout 200 ms)
+rx=1728 accepted=1728 duplicates=0 drop_other_port=0 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 16 complete of 16 seen -> /home/ubuntu/lab8/data/integration-20261025T013456Z/part4/frames_rx_inorder.bin (+ .ids.json); receive window 2.569 ms
+DPDK inorder: byte-for-byte match with Part 3 original.
+DPDK case: shuffled
+TELEMETRY: No legacy callbacks, legacy socket not created
+stopped: idle (idle timeout 200 ms)
+rx=1728 accepted=1728 duplicates=0 drop_other_port=0 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 16 complete of 16 seen -> /home/ubuntu/lab8/data/integration-20261025T013456Z/part4/frames_rx_shuffled.bin (+ .ids.json); receive window 2.658 ms
+DPDK shuffled: byte-for-byte match with Part 3 original.
+DPDK case: stress
+TELEMETRY: No legacy callbacks, legacy socket not created
+stopped: idle (idle timeout 200 ms)
+rx=1798 accepted=1728 duplicates=50 drop_other_port=20 drop_not_ipv4=0 drop_bad_ip=0 drop_not_udp=0 drop_short=0 drop_bad_magic=0 drop_bad_header=0 drop_multiseg=0
+frames: 16 complete of 16 seen -> /home/ubuntu/lab8/data/integration-20261025T013456Z/part4/frames_rx_stress.bin (+ .ids.json); receive window 2.727 ms
+DPDK stress: byte-for-byte match with Part 3 original.
+inorder: 16/16 frames byte-identical
+shuffled: 16/16 frames byte-identical
+stress: 16/16 frames byte-identical
+inorder: 16/16 top-1 classes match
+shuffled: 16/16 top-1 classes match
+stress: 16/16 top-1 classes match
+Pinned H2D batch 1: 0.026954 ms, 5.585 GB/s
+Pinned H2D batch 8: 0.195430 ms, 6.162 GB/s
+Pinned H2D batch 16: 0.387400 ms, 6.217 GB/s
+Part 5: PASS. Results: results/part5/integration-20261025T013456Z
+Verified integration PASS; provenance and original image manifest saved.
+RESULT_DIR=results/part5/integration-20261025T013456Z
+?? results/part5/integration-20261025T013456Z.log
+?? results/part5/integration-20261025T013456Z/
