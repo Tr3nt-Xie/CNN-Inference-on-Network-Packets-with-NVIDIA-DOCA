@@ -32,12 +32,15 @@ log 03_doca_caps  sudo docker run --rm --gpus all --privileged --net=host "$IMG"
 
 # ---- 6.3 gpunetio_simple_receive in the container ----------------------------------------
 # sm_75 (T4) and sm_80 (A30) are already in meson.build; other GPUs need their arch added.
+# The image puts /usr/local/cuda-13/compat (libcuda 580.178) ahead of the host driver's libcuda;
+# with a newer host driver that gives CUDA error 803, so the compat directory is dropped.
 log 04_simple_receive sudo docker run --rm --gpus all --privileged --net=host "$IMG" bash -c "
+  export LD_LIBRARY_PATH=\$(echo \$LD_LIBRARY_PATH | tr : '\\n' | grep -v compat | paste -sd:) &&
   cd /opt/mellanox/doca/samples/doca_gpunetio/gpunetio_simple_receive &&
   grep -n 'sm_' meson.build | head &&
   meson setup /tmp/build >/tmp/meson.log 2>&1 && ninja -C /tmp/build >/tmp/ninja.log 2>&1 &&
   echo BUILD OK && timeout 60 /tmp/build/doca_gpunetio_simple_receive -n $NIC_PCI -g $GPU_PCI -e 0
-  rc=\$?; echo; echo '--- meson/ninja tail'; tail -5 /tmp/meson.log /tmp/ninja.log; exit \$rc"
+  rc=\$?; echo; echo '--- meson/ninja tail'; tail -n 5 /tmp/meson.log /tmp/ninja.log; exit \$rc"
 
 # ---- 6.3 open-source GPUNetIO on the host ------------------------------------------------
 log 05_gpunetio_build bash -c "

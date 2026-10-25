@@ -1,0 +1,5 @@
+$ bash -c ibv_devices; ls /dev/infiniband 2>&1
+    device          	   node GUID
+    ------          	----------------
+ls: cannot access '/dev/infiniband': No such file or directory
+(exit 2)

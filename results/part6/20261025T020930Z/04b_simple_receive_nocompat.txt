@@ -1,0 +1,31 @@
+$ (same as 04, with the CUDA compat directory removed from LD_LIBRARY_PATH)
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/mpi/gcc/openmpi-4.1.9a1/lib
+BUILD OK
+[2026-10-25 02:14:09:705447][1975939072][DOCA][INF][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:198][main] Starting the sample
+[2026-10-25 02:14:09:705405][1975939072][DOCA][INF][CORE][doca_log.cpp:1335] DOCA version 3.5.0098
+[2026-10-25 02:14:09:842878][1975939072][DOCA][INF][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:240][main] Sample configuration:
+	GPU 00:1e.0
+	NIC 00:05.0
+	Receive exec scope Thread
+	
+[2026-10-25 02:14:09:843014][1975939072][DOCA][INF][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:261][main] Sample finished with errors
+[2026-10-25 02:14:09:842989][1975939072][DOCA][WRN][COMMON][common.c:98][open_doca_device_with_pci_and_callback] Matching device not found
+[2026-10-25 02:14:09:843004][1975939072][DOCA][ERR][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_sample.c:85][init_doca_device] Failed to open NIC device based on PCI address
+[2026-10-25 02:14:09:843007][1975939072][DOCA][ERR][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_sample.c:659][gpunetio_simple_receive] Function init_doca_device returned Requested Resource Not Found
+[2026-10-25 02:14:09:843009][1975939072][DOCA][ERR][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:249][main] gpunetio_simple_receive() encountered an error: Requested Resource Not Found
+(exit 1)

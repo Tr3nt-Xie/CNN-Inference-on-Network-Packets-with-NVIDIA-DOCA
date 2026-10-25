@@ -1,0 +1,40 @@
+$ sudo docker run --rm --gpus all --privileged --net=host nvcr.io/nvidia/doca/doca:devel-cuda13.0.0-3.5.0-devel-host bash -c 
+  cd /opt/mellanox/doca/samples/doca_gpunetio/gpunetio_simple_receive &&
+  grep -n 'sm_' meson.build | head &&
+  meson setup /tmp/build >/tmp/meson.log 2>&1 && ninja -C /tmp/build >/tmp/ninja.log 2>&1 &&
+  echo BUILD OK && timeout 60 /tmp/build/doca_gpunetio_simple_receive -n 00:05.0 -g 00:1e.0 -e 0
+  rc=$?; echo; echo '--- meson/ninja tail'; tail -5 /tmp/meson.log /tmp/ninja.log; exit $rc
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+65:	nvcc_flags += ['-gencode', 'arch=compute_70,code=sm_70']
+67:nvcc_flags += ['-gencode', 'arch=compute_75,code=sm_75']
+68:nvcc_flags += ['-gencode', 'arch=compute_80,code=sm_80']
+69:nvcc_flags += ['-gencode', 'arch=compute_90,code=sm_90']
+71:	nvcc_flags += ['-gencode', 'arch=compute_100,code=sm_100']
+84:	nvcc_flags_link += ['-gencode=arch=compute_70,code=sm_70']
+86:nvcc_flags_link += ['-gencode=arch=compute_75,code=sm_75']
+87:nvcc_flags_link += ['-gencode=arch=compute_80,code=sm_80']
+88:nvcc_flags_link += ['-gencode=arch=compute_90,code=sm_90']
+90:	nvcc_flags_link += ['-gencode=arch=compute_100,code=sm_100']
+BUILD OK
+[2026-10-25 02:12:58:509249][2092466176][DOCA][INF][CORE][doca_log.cpp:1335] DOCA version 3.5.0098
+[2026-10-25 02:12:58:509289][2092466176][DOCA][INF][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:198][main] Starting the sample
+[2026-10-25 02:12:58:510579][2092466176][DOCA][INF][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:261][main] Sample finished with errors
+[2026-10-25 02:12:58:510569][2092466176][DOCA][ERR][GPUNETIO_SIMPLE_RECEIVE][gpunetio_simple_receive_main.c:227][main] CUDA initialization failed: system has unsupported display driver / cuda driver combination
+
+--- meson/ninja tail
+tail: option used in invalid context -- 5
+(exit 1)

@@ -1,0 +1,14 @@
+$ sudo docker run --rm --gpus all ubuntu nvidia-smi -L
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+d9d511d19a19: Pulling fs layer
+435bf5c20694: Pulling fs layer
+d9d511d19a19: Download complete
+2e7e55092090: Download complete
+435bf5c20694: Download complete
+d9d511d19a19: Pull complete
+435bf5c20694: Pull complete
+Digest: sha256:c098726dd9b9733f3e885f8de0ef375206a311b0a317eadc40d347b1115fb944
+Status: Downloaded newer image for ubuntu:latest
+GPU 0: Tesla T4 (UUID: GPU-d1347904-0ff8-43a3-0dfe-46e025e26c16)
+(exit 0)

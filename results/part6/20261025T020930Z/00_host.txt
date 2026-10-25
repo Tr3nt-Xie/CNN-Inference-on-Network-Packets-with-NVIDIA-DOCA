@@ -1,0 +1,13 @@
+$ bash -c uname -r; nvidia-smi --query-gpu=name,driver_version,pci.bus_id,compute_cap --format=csv; lspci | grep -iE "ethernet|nvidia|mellanox"; df -h / /var/lib/docker 2>/dev/null; docker --version; nvidia-ctk --version
+6.8.0-1066-aws
+name, driver_version, pci.bus_id, compute_cap
+Tesla T4, 595.91.07, 00000000:00:1E.0, 7.5
+00:05.0 Ethernet controller: Amazon.com, Inc. Elastic Network Adapter (ENA)
+00:1e.0 3D controller: NVIDIA Corporation TU104GL [Tesla T4] (rev a1)
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       146G   68G   79G  47% /
+/dev/root       146G   68G   79G  47% /
+Docker version 29.9.1, build dfc520d
+NVIDIA Container Toolkit CLI version 1.20.1
+commit: dffc40b4f820ce5c512633bac9e0418d0e05a2ee
+(exit 0)

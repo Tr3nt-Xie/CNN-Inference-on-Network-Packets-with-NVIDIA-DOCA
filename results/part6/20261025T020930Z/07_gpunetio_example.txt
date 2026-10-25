@@ -1,0 +1,13 @@
+$ env DOCA_GPUNETIO_LOG=6 LD_LIBRARY_PATH=/home/ubuntu/gpunetio/install/lib:/usr/local/cuda-13.2/lib:/usr/local/cuda-13.2/lib64:/usr/local/cuda-13.2:/usr/local/cuda-13.2/targets/x86_64-linux/lib/:/usr/local/cuda-13.2/extras/CUPTI/lib64:/usr/local/cuda-12.9/lib:/usr/local/cuda-12.9/lib64:/usr/local/cuda-12.9:/usr/local/cuda-12.9/targets/x86_64-linux/lib/:/usr/local/cuda-12.9/extras/CUPTI/lib64:/opt/amazon/openmpi/lib:/usr/local/lib:/usr/lib timeout 60 /home/ubuntu/gpunetio/install/examples/gpunetio_verbs_write_lat -g 00:1e.0 -d mlx5_0
+Sun Oct 25 02:13:33 2026 [INFO] [/home/ubuntu/gpunetio/examples/verbs_common.cpp]: 256: create_verbs_resources(): Setting GPU device 0 at 00:1e.0
+Sun Oct 25 02:13:33 2026 [WARNING] [src/doca_gpunetio_sdk_wrapper.cpp]: 305: doca_gpu_sdk_wrapper_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 02:13:33 2026 [INFO] [src/doca_gpunetio.cpp]: 151: doca_gpu_create(): Use DOCA GPUNetIO open
+Sun Oct 25 02:13:33 2026 [INFO] [src/doca_gpunetio_gdrcopy.cpp]: 214: doca_gpu_gdrcopy_is_supported(): GDRCopy usage is enabled
+Sun Oct 25 02:13:33 2026 [ERR] [/home/ubuntu/gpunetio/examples/verbs_common.cpp]: 170: open_ib_device(): Failed to get RDMA devices list, ibdev_list null
+Sun Oct 25 02:13:33 2026 [ERR] [/home/ubuntu/gpunetio/examples/verbs_common.cpp]: 266: create_verbs_resources(): Failed to create doca network context
+Sun Oct 25 02:13:33 2026 [ERR] [/home/ubuntu/gpunetio/examples/verbs_common.cpp]: 368: destroy_verbs_resources(): Failed to destroy doca verbs high-level qp
+Sun Oct 25 02:13:33 2026 [ERR] [/home/ubuntu/gpunetio/examples/verbs_common.cpp]: 358: create_verbs_resources(): Failed to destroy resources: 6
+Sun Oct 25 02:13:33 2026 [ERR] [gpunetio_verbs_write_lat_sample.cpp]: 276: verbs_server(): Failed to create local rdma resources: 18
+Sun Oct 25 02:13:33 2026 [ERR] [gpunetio_verbs_write_lat_main.cpp]: 108: main(): verbs_server() failed
+Sun Oct 25 02:13:33 2026 [INFO] [gpunetio_verbs_write_lat_main.cpp]: 125: main(): Sample finished with errors
+(exit 1)
