@@ -8,16 +8,43 @@ files are confined to `part5_classify/`; real measured outputs go under
 
 ## Recorded GPU verification
 
-The code was exercised on the shared Tesla T4 with TensorRT 11.4.0.106.
-The [recorded synthetic smoke test](../results/part5/synthetic-20261024T013628Z/report.md)
-passed: 16/16 byte-identical frames and 16/16 matching top-1 classes for each
-of the ordered and shuffled storage fixtures. The directory also contains
-per-image predictions, copy-time samples, and environment/source hashes.
+**Part 3/4 integration passed on the shared Tesla T4 with TensorRT 11.4.0.106.**
+The [real-image integration report](../results/part5/integration-20261025T013456Z/report.md)
+uses 16 cat/dog images from the cached Lab7 dataset. The unmodified Part 3 generator
+packetized the images; the actual Part 4 C receiver replayed the in-order, shuffled,
+and stress PCAPs through the DPDK pcap PMD on the AWS instance. All three received
+datasets had 16/16 byte-identical frames and 16/16 matching top-1 classes versus
+the originals. This is PCAP replay, not a live-NIC throughput measurement.
 
-**This is a development test using synthetic fixtures, not completed Part 3/4
-integration.** The original images and actual DPDK receiver outputs were absent
-when it was run. Run this code again with those real artifacts before presenting
-the lab's final results.
+The stress input contained 50 duplicate packets and 20 packets to the wrong UDP
+port; DPDK dropped those packets and reconstructed all 16 images. Mean pinned H2D
+copy times for batches 1/8/16 were 0.026954/0.195430/0.387400 ms. Each measurement
+used 50 warm-ups and 200 CUDA-event-timed copies. These are copy times, not total
+inference latency or measured end-to-end GPUNetIO speedups.
+
+The [execution log](../results/part5/integration-20261025T013456Z.log), per-image predictions,
+timing samples, source hashes, original-image manifest, and input provenance are
+retained beside the report. This new input batch differs from the teammate's earlier
+Part 3/4 run; all DPDK outputs used here were produced again from this batch.
+
+The earlier [synthetic smoke test](../results/part5/synthetic-20261024T013628Z/report.md)
+is retained as development history. Use the real-image integration report for the
+Part 5 results demonstration.
+
+The exact input files remain on the shared instance under
+`data/integration-20261025T013456Z/`. To repeat the successful GPU classification with a new
+timestamped output directory:
+
+```bash
+bash part5_classify/run_part5.sh \
+  --original data/integration-20261025T013456Z/part3/original.bin \
+  --received inorder=data/integration-20261025T013456Z/part4/frames_rx_inorder.bin \
+  --received shuffled=data/integration-20261025T013456Z/part4/frames_rx_shuffled.bin \
+  --received stress=data/integration-20261025T013456Z/part4/frames_rx_stress.bin \
+  --received-ids inorder=data/integration-20261025T013456Z/part4/frames_rx_inorder.bin.ids.json \
+  --received-ids shuffled=data/integration-20261025T013456Z/part4/frames_rx_shuffled.bin.ids.json \
+  --received-ids stress=data/integration-20261025T013456Z/part4/frames_rx_stress.bin.ids.json
+```
 
 ## Run on the shared GPU instance
 
@@ -119,7 +146,7 @@ non-FP16 input engines, invalid output logits, and failed copy verification.
 The report explains that GPUNetIO can eliminate this CPU-to-GPU image copy by
 receiving into GPU memory. It does not eliminate reassembly, preprocessing or
 inference. Isolating this copy does not itself measure an end-to-end GPUNetIO
-speedup. A full Part 5 submission still needs real Part 3/4 inputs and GPU results.
+speedup. Use actual Part 3/4 outputs and a completed GPU report for the final Part 5 results.
 
 ## Checks without a GPU
 
