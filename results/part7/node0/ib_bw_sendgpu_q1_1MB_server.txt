@@ -1,0 +1,32 @@
+# 2026-10-25T01:29:20Z node0 server, buffer in host memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_bw -d rocep65s0 -x 3 -s 1048576 --report_gbits
+
+************************************
+* Waiting for client to connect... *
+************************************
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : rocep65s0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON		Using Enhanced Reorder      : OFF
+ CQ Moderation   : 1
+ CQE Poll Batch  : Dynamic
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+ NUMA node       : 1
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0039 PSN 0x407b15 RKey 0x182e00 VAddr 0x00753251021000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ remote address: LID 0000 QPN 0x003a PSN 0x5380d9 RKey 0x182e00 VAddr 0x0071fa63100000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 1048576    5000             64.96              64.93  		     0.007740
+---------------------------------------------------------------------------------------
+(exit 0)

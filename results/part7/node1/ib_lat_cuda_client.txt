@@ -1,0 +1,5 @@
+# 2026-10-25T01:32:08Z node1 client, buffer in gpu memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_lat -d rocep65s0 -x 3 -a --use_cuda=0 --use_cuda_dmabuf 10.10.1.1
+Perftest doesn't support device memory latency test with write (without immediate) verb; use --write_with_imm
+---------------------------------------------------------------------------------------
+(exit 1)

@@ -1,0 +1,47 @@
+# 2026-10-25T01:28:41Z node0 server, buffer in gpu memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_bw -d rocep65s0 -x 3 -a --use_cuda=0 --use_cuda_dmabuf --report_gbits
+Perftest doesn't supports device memory tests with inline messages: inline size set to 0
+
+************************************
+* Waiting for client to connect... *
+************************************
+initializing CUDA
+Listing all CUDA devices in system:
+CUDA device 0: PCIe address is 25:00
+
+Picking device No. 0
+[pid = 18289, dev = 0] device name = [NVIDIA A30]
+creating CUDA Ctx
+making it the current CUDA Ctx
+CUDA device integrated: 0
+using DMA-BUF for GPU buffer address at 0x7b71bd000000 aligned at 0x7b71bd000000 with aligned size 16777216
+allocated GPU buffer of a 16777216 address at 0x634ae2583df0 for type CUDA_MEM_DEVICE
+Calling ibv_reg_dmabuf_mr(offset=0, size=16777216, addr=0x7b71bd000000, fd=39) for QP #0
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : rocep65s0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON		Using Enhanced Reorder      : OFF
+ CQ Moderation   : 100
+ CQE Poll Batch  : Dynamic
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+ NUMA node       : 1
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0038 PSN 0xd09459 RKey 0x182e00 VAddr 0x007b71bd800000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ remote address: LID 0000 QPN 0x0039 PSN 0x727bb2 RKey 0x182e00 VAddr 0x007bbaaf7ff000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 8388608    5000             145.53             145.53 		     0.002169
+---------------------------------------------------------------------------------------
+deallocating GPU buffer 00007b71bd000000
+destroying current CUDA Ctx
+(exit 0)

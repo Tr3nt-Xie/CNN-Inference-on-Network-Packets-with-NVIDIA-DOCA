@@ -1,0 +1,115 @@
+# 2026-10-25T01:32:22Z node0 server, buffer in gpu memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_lat -d rocep65s0 -x 3 -a --use_cuda=0 --use_cuda_dmabuf --write_with_imm
+Conflicting CPU frequency values detected: 2725.205000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3106.779000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3188.061000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2861.087000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3181.468000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3289.674000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3276.265000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2493.099000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1858.241000 != 3195.124000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2718.012000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2125.811000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3293.359000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3292.247000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.867000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2436.219000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3292.756000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2643.607000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 1660.392000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2670.582000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.320000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2121.466000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2796.597000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3292.941000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2191.435000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3207.374000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.845000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3292.954000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3291.467000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2647.913000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 2331.603000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3253.163000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3125.854000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3136.020000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3292.125000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3097.694000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3141.285000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3293.884000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1835.925000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.827000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1890.886000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.860000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.849000. CPU Frequency is not max.
+Disabling dynamic polling
+Perftest doesn't supports device memory tests with inline messages: inline size set to 0
+
+************************************
+* Waiting for client to connect... *
+************************************
+initializing CUDA
+Listing all CUDA devices in system:
+CUDA device 0: PCIe address is 25:00
+
+Picking device No. 0
+[pid = 19321, dev = 0] device name = [NVIDIA A30]
+creating CUDA Ctx
+making it the current CUDA Ctx
+CUDA device integrated: 0
+using DMA-BUF for GPU buffer address at 0x7062d3000000 aligned at 0x7062d3000000 with aligned size 16777216
+allocated GPU buffer of a 16777216 address at 0x62bfae01fd40 for type CUDA_MEM_DEVICE
+Calling ibv_reg_dmabuf_mr(offset=0, size=16777216, addr=0x7062d3000000, fd=39) for QP #0
+---------------------------------------------------------------------------------------
+                    RDMA_Write_imm Latency Test
+ Dual-port       : OFF		Device         : rocep65s0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: OFF		Lock-free      : OFF
+ ibv_wr* API     : ON		Using Enhanced Reorder      : OFF
+ RX depth        : 512
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+ NUMA node       : 1
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0049 PSN 0x41da57
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ remote address: LID 0000 QPN 0x0049 PSN 0x6181fa
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+---------------------------------------------------------------------------------------
+ #bytes #iterations    t_min[usec]    t_max[usec]  t_typical[usec]    t_avg[usec]    t_stdev[usec]   99% percentile[usec]   99.9% percentile[usec] 
+ 2       1000          4.49           7.55         4.53     	       4.55        	0.16   		5.53    		7.55   
+ 4       1000          4.49           7.40         4.53     	       4.56        	0.05   		4.95    		7.40   
+ 8       1000          4.48           6.76         4.53     	       4.57        	0.08   		4.96    		6.76   
+ 16      1000          4.48           6.59         4.53     	       4.56        	0.06   		4.97    		6.59   
+ 32      1000          4.52           7.35         4.55     	       4.60        	0.10   		5.67    		7.35   
+ 64      1000          4.53           6.03         4.57     	       4.62        	0.08   		5.29    		6.03   
+ 128     1000          4.59           6.51         4.62     	       4.65        	0.06   		4.99    		6.51   
+ 256     1000          4.66           6.15         4.69     	       4.71        	0.04   		4.97    		6.15   
+ 512     1000          4.70           5.95         4.74     	       4.76        	0.05   		5.21    		5.95   
+ 1024    1000          4.79           7.19         4.83     	       4.85        	0.04   		5.23    		7.19   
+ 2048    1000          4.95           6.62         5.00     	       5.03        	0.03   		5.45    		6.62   
+ 4096    1000          5.34           6.90         5.39     	       5.40        	0.04   		5.77    		6.90   
+ 8192    1000          6.39           8.39         6.43     	       6.46        	0.06   		7.03    		8.39   
+ 16384   1000          6.65           11.86        7.23     	       7.35        	0.22   		8.61    		11.86  
+ 32768   1000          8.57           10.76        8.63     	       9.00        	0.13   		10.00   		10.76  
+ 65536   1000          13.38          16.78        13.44    	       13.80       	0.67   		15.89   		16.78  
+ 131072  1000          21.38          29.57        21.63    	       22.17       	1.02   		28.02   		29.57  
+ 262144  1000          38.21          45.84        38.55    	       39.43       	1.78   		44.90   		45.84  
+ 524288  1000          71.83          95.70        72.39    	       73.82       	3.26   		84.38   		95.70  
+ 1048576 1000          140.05         163.20       140.62   	       143.26      	5.52   		160.07  		163.20 
+ 2097152 1000          276.44         321.49       277.42   	       282.20      	10.52Conflicting CPU frequency values detected: 2687.703000 != 2137.404000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3293.451000 != 2994.401000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.401000 != 3293.826000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3293.038000 != 2994.401000. CPU Frequency is not max.
+  		314.93  		321.49 
+ 4194304 1000          551.05         621.84       552.54   	       562.33      	20.50  		619.60  		621.84 
+ 8388608 1000          1098.06        1230.51      1100.01  	       1117.82     	34.17  		1220.52 		1230.51
+---------------------------------------------------------------------------------------
+deallocating GPU buffer 00007062d3000000
+destroying current CUDA Ctx
+(exit 0)

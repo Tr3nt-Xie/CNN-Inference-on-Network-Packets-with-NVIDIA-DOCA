@@ -1,0 +1,96 @@
+# 2026-10-25T01:32:46Z node1 client, buffer in host memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_lat -d rocep65s0 -x 3 -a --write_with_imm 10.10.1.1
+Conflicting CPU frequency values detected: 3057.466000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2010.367000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2827.174000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2054.598000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3114.925000 != 1705.533000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3122.429000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2042.486000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3293.596000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3292.576000 != 3162.418000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2607.785000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3293.953000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3282.055000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1794.850000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2017.178000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 2280.396000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3149.686000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2712.595000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3293.387000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2046.682000 != 1568.753000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3085.778000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3159.477000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3170.962000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2003.599000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2963.392000 != 3276.419000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2307.906000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1891.935000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 2132.367000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3140.770000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2848.713000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2029.866000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3158.044000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3040.301000 != 3162.967000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3221.879000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2959.655000 != 3164.557000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 2334.611000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3189.764000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3292.684000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2721.434000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 1826.012000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1675.619000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1693.203000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1966.163000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 3293.978000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 3292.615000 != 2994.523000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2994.523000 != 1636.558000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 2571.210000 != 2994.523000. CPU Frequency is not max.
+Disabling dynamic polling
+---------------------------------------------------------------------------------------
+                    RDMA_Write_imm Latency Test
+ Dual-port       : OFF		Device         : rocep65s0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: OFF		Lock-free      : OFF
+ ibv_wr* API     : ON		Using Enhanced Reorder      : OFF
+ TX depth        : 1
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 220[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+ NUMA node       : 1
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x004a PSN 0x6b7f1b
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+ remote address: LID 0000 QPN 0x004a PSN 0xdd6445
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+---------------------------------------------------------------------------------------
+ #bytes #iterations    t_min[usec]    t_max[usec]  t_typical[usec]    t_avg[usec]    t_stdev[usec]   99% percentile[usec]   99.9% percentile[usec] 
+ 2       1000          2.64           4.77         2.78     	       2.79        	0.04   		2.93    		4.77   
+ 4       1000          2.64           4.14         2.78     	       2.79        	0.06   		2.93    		4.14   
+ 8       1000          2.64           5.25         2.78     	       2.79        	0.03   		2.95    		5.25   
+ 16      1000          2.64           4.26         2.79     	       2.79        	0.04   		2.95    		4.26   
+ 32      1000          2.66           4.73         2.80     	       2.81        	0.06   		2.96    		4.73   
+ 64      1000          2.67           4.35         2.82     	       2.82        	0.04   		2.99    		4.35   
+ 128     1000          2.73           3.93         2.88     	       2.88        	0.00   		3.05    		3.93   
+ 256     1000          3.44           5.39         3.61     	       3.62        	0.04   		3.79    		5.39   
+ 512     1000          3.50           5.67         3.65     	       3.67        	0.00   		3.93    		5.67   
+ 1024    1000          3.59           4.96         3.78     	       3.79        	0.00   		3.99    		4.96   
+ 2048    1000          3.77           5.46         3.93     	       3.94        	0.03   		4.16    		5.46   
+ 4096    1000          4.15           5.59         4.29     	       4.31        	0.03   		4.67    		5.59   
+ 8192    1000          4.38           5.82         4.72     	       4.73        	0.03   		5.10    		5.82   
+ 16384   1000          5.13           7.73         5.47     	       5.51        	0.04   		5.97    		7.73   
+ 32768   1000          5.94           12.47        6.62     	       6.59        	0.11   		7.41    		12.47  
+ 65536   1000          7.71           103.05       7.99     	       8.39        	2.93   		9.61    		103.05 
+ 131072  1000          11.05          109.62       11.50    	       12.06       	4.33   		14.60   		109.62 
+ 262144  1000          17.92          115.23       18.29    	       18.97       	4.44   		23.78   		115.23 
+ 524288  1000          31.78          133.91       32.15    	       32.88       	5.56   		42.57   		133.91 
+ 1048576 1000          58.12          182.53       58.69    	       59.32       	4.82   		78.60   		182.53 
+ 2097152 1000          114.05         293.94       114.80   	       115.46      	6.64   		151.85  		293.94 
+ 4194304 1000          256.09         5384.91      304.73   	       310.51      	37.14  		386.08  		5384.91
+ 8388608 1000          442.63         994.89       455.71   	       459.37      	37.56  		748.11  		994.89 
+---------------------------------------------------------------------------------------
+(exit 0)

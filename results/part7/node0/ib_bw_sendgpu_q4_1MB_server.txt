@@ -1,0 +1,44 @@
+# 2026-10-25T01:29:28Z node0 server, buffer in host memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_bw -d rocep65s0 -x 3 -s 1048576 -q 4 --report_gbits
+
+************************************
+* Waiting for client to connect... *
+************************************
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : rocep65s0
+ Number of qps   : 4		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON		Using Enhanced Reorder      : OFF
+ CQ Moderation   : 1
+ CQE Poll Batch  : Dynamic
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+ NUMA node       : 1
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x003a PSN 0xc6ce90 RKey 0x182f00 VAddr 0x007fc492139000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ local address: LID 0000 QPN 0x003b PSN 0x393071 RKey 0x182f00 VAddr 0x007fc492239000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ local address: LID 0000 QPN 0x003c PSN 0x63431 RKey 0x182f00 VAddr 0x007fc492339000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ local address: LID 0000 QPN 0x003d PSN 0x646af5 RKey 0x182f00 VAddr 0x007fc492439000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:01
+ remote address: LID 0000 QPN 0x003b PSN 0x108e8b RKey 0x182f00 VAddr 0x0077914f400000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+ remote address: LID 0000 QPN 0x003c PSN 0x8fd19 RKey 0x182f00 VAddr 0x0077914f500000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+ remote address: LID 0000 QPN 0x003d PSN 0xb5baef RKey 0x182f00 VAddr 0x0077914f600000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+ remote address: LID 0000 QPN 0x003e PSN 0xcdf112 RKey 0x182f00 VAddr 0x0077914f700000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:10:01:02
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 1048576    20000            61.18              61.17  		     0.007292
+---------------------------------------------------------------------------------------
+(exit 0)

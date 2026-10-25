@@ -1,0 +1,19 @@
+# 2026-10-25T01:30:33Z node1 client, buffer in gpu memory (8f87844 built with CUDA)
+$ /users/fengmaox/perftest-src/ib_write_bw -d rocep65s0 -x 3 -s 1048576 --use_cuda=0 --use_cuda_dmabuf --use_cuda_pcie_mapping --report_gbits 10.10.1.1
+failed to create mr
+Failed to create MR
+ Couldn't create IB resources
+Perftest doesn't supports device memory tests with inline messages: inline size set to 0
+initializing CUDA
+Listing all CUDA devices in system:
+CUDA device 0: PCIe address is 25:00
+
+Picking device No. 0
+[pid = 17860, dev = 0] device name = [NVIDIA A30]
+creating CUDA Ctx
+making it the current CUDA Ctx
+CUDA device integrated: 0
+using DMA-BUF for GPU buffer address at 0x7de4e3000000 aligned at 0x7de4e3000000 with aligned size 2097152
+cuMemGetHandleForAddressRange error=801
+destroying current CUDA Ctx
+(exit 1)

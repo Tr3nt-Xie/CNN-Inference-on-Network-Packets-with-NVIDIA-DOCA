@@ -1,0 +1,20 @@
+# 2026-10-25T01:34:16Z node0 server
+$ sudo env LD_LIBRARY_PATH=/users/fengmaox/gpunetio/install/lib:/opt/mellanox/gdrcopy/src: DOCA_GPUNETIO_LOG=6 timeout 120 /users/fengmaox/gpunetio/install/examples/gpunetio_verbs_write_lat -g 25:00.0 -d rocep65s0 -l 3 -p 10
+Sun Oct 25 01:34:16 2026 [INFO] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 256: create_verbs_resources(): Setting GPU device 0 at 25:00.0
+Sun Oct 25 01:34:16 2026 [WARNING] [src/doca_gpunetio_sdk_wrapper.cpp]: 305: doca_gpu_sdk_wrapper_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 01:34:16 2026 [INFO] [src/doca_gpunetio.cpp]: 151: doca_gpu_create(): Use DOCA GPUNetIO open
+Sun Oct 25 01:34:16 2026 [INFO] [src/doca_gpunetio_gdrcopy.cpp]: 214: doca_gpu_gdrcopy_is_supported(): GDRCopy usage is enabled
+Sun Oct 25 01:34:16 2026 [WARNING] [src/doca_verbs_dev_sdk_wrapper.cpp]: 241: doca_verbs_sdk_wrapper_dev_open_from_pd(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 01:34:16 2026 [INFO] [src/doca_verbs_dev.cpp]: 94: doca_verbs_dev_open(): Use DOCA Verbs Dev open
+Sun Oct 25 01:34:16 2026 [INFO] [src/doca_verbs_dev.cpp]: 106: doca_verbs_dev_open(): doca_verbs_dev_open=0x5d29d47d1c50 was created
+Sun Oct 25 01:34:16 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 1652: doca_verbs_sdk_wrapper_ah_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 01:34:16 2026 [INFO] [src/doca_verbs_qp.cpp]: 3285: doca_verbs_ah_attr_create(): Use DOCA Verbs AH Attr open
+Sun Oct 25 01:34:16 2026 [INFO] [src/doca_verbs_qp.cpp]: 3291: doca_verbs_ah_attr_create(): doca_verbs_verbs_ah_open=0x5d29d47d1c80 was created
+Sun Oct 25 01:34:16 2026 [ERR] [src/doca_gpunetio_high_level.cpp]: 1152: doca_gpu_verbs_create_qp_hl(): nic_handler (10) must be AUTO 0, CPU_PROXY 1, GPU_SM_DB 2, GPU_SM_BF 6, or CPU_PROXY_FREE_FLOW 17
+Sun Oct 25 01:34:16 2026 [ERR] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 343: create_verbs_resources(): Failed to create doca verbs high-level qp 6
+Sun Oct 25 01:34:16 2026 [ERR] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 368: destroy_verbs_resources(): Failed to destroy doca verbs high-level qp
+Sun Oct 25 01:34:16 2026 [ERR] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 358: create_verbs_resources(): Failed to destroy resources: 6
+Sun Oct 25 01:34:16 2026 [ERR] [gpunetio_verbs_write_lat_sample.cpp]: 276: verbs_server(): Failed to create local rdma resources: 6
+Sun Oct 25 01:34:16 2026 [ERR] [gpunetio_verbs_write_lat_main.cpp]: 108: main(): verbs_server() failed
+Sun Oct 25 01:34:16 2026 [INFO] [gpunetio_verbs_write_lat_main.cpp]: 125: main(): Sample finished with errors
+(exit 1)

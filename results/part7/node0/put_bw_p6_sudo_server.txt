@@ -1,0 +1,4 @@
+# 2026-10-25T01:34:27Z node0 server
+$ sudo env LD_LIBRARY_PATH=/users/fengmaox/gpunetio/install/lib:/opt/mellanox/gdrcopy/src: DOCA_GPUNETIO_LOG=6 timeout 120 /users/fengmaox/gpunetio/install/examples/gpunetio_verbs_put_bw -g 25:00.0 -d rocep65s0 -l 3 -p 6
+Sun Oct 25 01:34:27 2026 [ERR] [gpunetio_verbs_put_bw_main.cpp]: 91: main(): NIC handler BlueFlame not supported in this example
+(exit 1)

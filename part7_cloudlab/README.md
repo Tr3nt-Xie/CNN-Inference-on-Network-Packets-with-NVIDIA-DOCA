@@ -13,6 +13,10 @@ node; the tables and plots below are produced from those logs by `analyze.py`.
 | One-way latency, smallest message (µs) | **8.46** (1 B, `gpunetio_verbs_write_lat -p 1`); **8.20** with `-p 2` (GPU rings the doorbell, run with sudo) | **2.48** (2 B, `ib_write_lat`, t_typical) |
 | Bandwidth at 64 KB (Gbps) | **47.3-47.9** (`gpunetio_verbs_put_bw -p 1`, 3 runs); 50.2 with `-p 2` | **85.3 / 101.0** (`ib_write_bw`, 2 runs) |
 | Bandwidth, large messages (Gbps) | ~56 (256 KB-1 MB, all 3 runs) | ~194 (2-8 MB) of the 200 Gb/s link |
+| Follow-up: CPU-initiated, buffers in GPU memory | | **61** Gb/s (GPU sender), **145** (GPU receiver only); latency 4.53 µs |
+
+The follow-up ([below](#follow-up-separating-the-two-same-session-1825-1855-pdt)) shows the
+bandwidth gap comes from the NIC reading GPU memory over this PCIe path, not from GPUNetIO.
 
 ![one-way latency vs message size](../results/part7/analysis/latency.png)
 ![bandwidth vs message size](../results/part7/analysis/bandwidth.png)
@@ -189,30 +193,78 @@ message size. Data in CPU memory, posted by the CPU.
 
 ## Why the two columns differ
 
-**Where the data is.** GPUNetIO's buffers are in GPU memory: the NIC reads them with PCIe
-peer-to-peer DMA from the A30, and here that path crosses two host bridges (`NODE`). perftest's
-buffers are in CPU memory, which the NIC reads through its own root port. The GPU path levels off
-at about 56 Gb/s while the CPU path reaches 194 Gb/s on the same NIC and link, which points to the
-GPU-NIC peer-to-peer path, rather than the network, as the limit for large messages. We infer
-this from the topology and the measurements; we did not measure PCIe throughput directly.
+Two things differ between the columns at once: **which processor starts the transfer** (GPU or
+CPU) and **where the data lives** (GPU or host memory). The follow-up runs below separate them.
 
-**Which processor tells the NIC to send.** With perftest the CPU builds each request in host
-memory, rings the doorbell, and small payloads travel inline in the request. With GPUNetIO the
-CUDA kernel builds the request in GPU memory, and the doorbell is rung either by a CPU proxy
-thread (`-p 1`) or by the GPU itself (`-p 2`). Our `-p 2` runs show that **who rings the doorbell
-is not what makes the GPU path slower here**: removing the CPU proxy cut the smallest-message
-latency only from 8.46 to 8.20 µs and did not change the 56 Gb/s plateau. The remaining gap to
-perftest (8.2 vs 2.5 µs) is therefore more likely in the GPU side of every operation: the NIC has
-to fetch the request and payload from GPU memory and write the completion back to GPU memory over
-the same peer-to-peer path, and the GPU thread polls for it. We infer this from the measurements
-and the `NODE` topology; we did not trace PCIe transactions.
+### Follow-up: separating the two (same session, 18:25-18:55 PDT)
 
-**What GPU-initiated RDMA still buys.** Even through the proxy, the payload never passes through
-CPU memory: there is no host staging copy and no `cudaMemcpy` between GPU and host for the data.
-That is the copy Part 5 measures with pinned memory. Our results suggest the next gain would come
-from the topology rather than the doorbell: on a platform where the GPU and NIC share a PCIe
-switch (`PIX`/`PXB`), as the install guide recommends, the peer-to-peer path would be expected to
-narrow both gaps.
+perftest was rebuilt from source with CUDA (`linux-rdma/perftest` 8f87844; needed
+`librdmacm-dev libpci-dev libibumad-dev`) so the **CPU** can start RDMA writes whose buffers are
+in **GPU** memory (`--use_cuda=0 --use_cuda_dmabuf`). Script: `perftest_cuda.sh`
+(`MEM=host` keeps one side in host memory). Logs: `results/part7/node*/ib_*_{cuda,sendgpu*,sendhost*,imm*}_*.txt`.
+
+**Bandwidth, `ib_write_bw` (CPU-initiated), large messages:**
+
+| Sender buffer | Receiver buffer | Gb/s (1-8 MB) |
+|---|---|---|
+| host | host | ~194 (7.10) |
+| host | GPU | **145** |
+| GPU | host | **61** |
+| GPU | GPU | **61** (flat from 16 KB up) |
+| GPUNetIO `put_bw`, GPU-initiated, GPU to GPU | | ~56 (7.9) |
+
+With the CPU starting every transfer, moving the sender's buffer into GPU memory alone drops the
+plateau from 194 to 61 Gb/s; a GPU receive buffer costs much less (145). So the large-message
+limit is **the NIC reading from GPU memory** (PCIe peer-to-peer reads from the A30, which sits
+under a different root complex, `pci0000:20`, than the NIC, `pci0000:40`). GPUNetIO's 56 Gb/s is
+within about 8% of that ceiling, so its GPU-side software is not the main bandwidth cost.
+
+Things that did **not** raise the GPU-read ceiling (GPU sender, host receiver, 1 MB):
+
+| Change | Gb/s |
+|---|---|
+| baseline, 1 QP | 65.0 |
+| 4 / 8 QPs (more reads in flight) | 61.2 / 60.1 |
+| PCIe relaxed ordering off (`--disable_pcie_relaxed`; default is on) | 62.9 |
+| NIC MaxReadReq 512 -> 4096 B (`setpci` on node1 only, restored afterwards) | 60.2 (1 MB, sweep) |
+| BAR1 mapping (`--use_cuda_pcie_mapping`) | not supported: `cuMemGetHandleForAddressRange error=801` |
+
+Both links train at Gen4 x16 (`lspci_nic.txt`, `lspci_gpu.txt`), so link width is not the limit.
+More reads in flight not helping means this is a throughput ceiling of the peer-to-peer read path
+on this platform, not a latency effect that parallelism could hide.
+
+**Latency, smallest message, one-way:**
+
+| Setup | µs |
+|---|---|
+| CPU-initiated, host memory (`ib_write_lat --write_with_imm`, 2 B) | 2.78 |
+| CPU-initiated, GPU memory (same, `--use_cuda`, 2 B) | 4.53 |
+| GPUNetIO `-p 1` / `-p 2` (sudo) / `-p 6` BlueFlame (sudo), 1 B | 8.46 / 8.20 / 8.12 |
+
+perftest refuses GPU-memory latency with plain RDMA write, hence `--write_with_imm` for both
+perftest rows (2.78 µs vs 2.48 µs for plain write in 7.10). GPU memory adds about 1.75 µs; the
+remaining ~3.6 µs comes from starting and completing the operation on the GPU. BlueFlame
+(`-p 6`: the GPU writes the request straight into the NIC's doorbell page, so the NIC does not
+fetch it from GPU memory) moved latency by -0.7 to +0.2 µs per size across 1 B-16 KB (7.30-8.83
+µs vs 7.16-8.83 µs for `-p 2`), so fetching the request is not the main part either. We did not split
+the remaining time further (GPU thread posting and fencing vs. completion polling). The two
+completion methods also differ (perftest: CPU polls a completion queue; GPUNetIO: GPU thread
+polls), so the split is approximate. `-p 10` is rejected by the API (only 0, 1, 2, 6, 17 are
+accepted) and `put_bw` does not support BlueFlame.
+
+### What this means
+
+- **Bandwidth:** on these nodes no software or PCIe setting we tried lifts the 61 Gb/s ceiling
+  for sending out of GPU memory. Ways around it: put the GPU and NIC under one PCIe switch
+  (`PIX`/`PXB`, as the install guide recommends), or stage outgoing data in pinned host memory
+  (the NIC then reads host memory; not tested here).
+- **Receiving into GPU memory is far less affected (145 Gb/s)**, and that is the direction this
+  lab's pipeline uses: packets arrive and go to the GPU for inference.
+- **Latency:** the GPU-initiated path costs about 5.4 µs more than CPU-initiated RDMA in host
+  memory; about a third of that is GPU memory, most of the rest is the GPU-side start/complete.
+- **What GPU-initiated RDMA still buys:** the payload never passes through CPU memory, so there is
+  no host staging copy or `cudaMemcpy` (the copy Part 5 measures with pinned memory), and the CPU
+  is not involved per message with `-p 2`/`-p 6`.
 
 ## Runbook
 
@@ -258,3 +310,5 @@ python3 part7_cloudlab/analyze.py      # tables + plots -> results/part7/analysi
 | `simple_receive.sh` | 7.5 | Builds and runs `gpunetio_simple_receive` in the DOCA container |
 | `rdma.sh` | 7.8-7.10 | One GPUNetIO or perftest test as server or client, output saved per run |
 | `analyze.py` | 7.10 | Parses the client logs into CSV and the two plots |
+| `perftest_cuda.sh` | follow-up | perftest built with CUDA: CPU-initiated RDMA with GPU buffers (`MEM=host` for one side) |
+| `gpunetio_modes.sh` | follow-up | GPUNetIO examples with other `-p` modes (e.g. 6, BlueFlame), run as root |
