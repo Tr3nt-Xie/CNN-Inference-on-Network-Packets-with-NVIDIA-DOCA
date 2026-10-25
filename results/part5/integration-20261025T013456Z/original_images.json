@@ -1,0 +1,91 @@
+{
+ "frame_bytes": 150528,
+ "shape": [
+  224,
+  224,
+  3
+ ],
+ "layout": "HWC RGB uint8",
+ "frames": [
+  {
+   "frame_id": 0,
+   "source": "cat.00003.jpg",
+   "sha256": "5780882d541d242e4335ab6cad526820c7de568592a98bcb3b694935460fee7b"
+  },
+  {
+   "frame_id": 1,
+   "source": "dog.11746.jpg",
+   "sha256": "21f17d3acd731851e737054ef6de6b6e3ddb5dfd1973cfa71bfa0769abba6e31"
+  },
+  {
+   "frame_id": 2,
+   "source": "cat.00006.jpg",
+   "sha256": "85299c7005cac020743ebad0efeea81a723846f0239ae30979dfe4c3b8eda945"
+  },
+  {
+   "frame_id": 3,
+   "source": "dog.11755.jpg",
+   "sha256": "05cb94d42506117f4911e1d76554090bd1bab349b2eb2bac9b6509160e048901"
+  },
+  {
+   "frame_id": 4,
+   "source": "cat.00008.jpg",
+   "sha256": "8087b695ee2b38cd961e5914a5ba2ee2c19d7f461907889c5a3e5d68970c8e2e"
+  },
+  {
+   "frame_id": 5,
+   "source": "dog.11756.jpg",
+   "sha256": "fa7e4119d7ab7ead46f2175c5ebd7d077d4ef0de1bf64491d3cb9056629d83c4"
+  },
+  {
+   "frame_id": 6,
+   "source": "cat.00012.jpg",
+   "sha256": "f1b821ff4735bbe3c3ea2cab9b3215ad0d582ac6d23b85e217ec02696aa43091"
+  },
+  {
+   "frame_id": 7,
+   "source": "dog.11758.jpg",
+   "sha256": "ea7e3a5d5ab004c4b28756c06e274f992ab84ee744e96889e1e319b36a392324"
+  },
+  {
+   "frame_id": 8,
+   "source": "cat.00019.jpg",
+   "sha256": "cbcadf98378f8322a15cca038dda0bbcf6a8e24b3f97e53232d4d1da97fed916"
+  },
+  {
+   "frame_id": 9,
+   "source": "dog.11759.jpg",
+   "sha256": "58588b113b79ec0d1f95b8c82c46eadc062e9434e469177acdd56e353aeecfa3"
+  },
+  {
+   "frame_id": 10,
+   "source": "cat.00022.jpg",
+   "sha256": "fd0f876ee0fc6abb367c9034c4087e62bf1bdc2396b9d21186c7176cf09554be"
+  },
+  {
+   "frame_id": 11,
+   "source": "dog.11767.jpg",
+   "sha256": "120434fcfb096aad845d0056b568822e08379e1d788b89433910bc10f5c4916e"
+  },
+  {
+   "frame_id": 12,
+   "source": "cat.00024.jpg",
+   "sha256": "e3a0c916888764f2ccf22736df1748ff60f023365a1b270281d0752cac670255"
+  },
+  {
+   "frame_id": 13,
+   "source": "dog.11775.jpg",
+   "sha256": "9bddc62252cf5a861be9a432c7583d379fcf89ce6640d48d40a88d2e1ff06651"
+  },
+  {
+   "frame_id": 14,
+   "source": "cat.00029.jpg",
+   "sha256": "24295f1ed15b70699017ed9a5c51b68115c59806772a1cd6dbd17a0c88da61d4"
+  },
+  {
+   "frame_id": 15,
+   "source": "dog.11777.jpg",
+   "sha256": "a9547277f394929d2cdb76c9951e4f584c28eac9b0e7170be0206830d679fe6e"
+  }
+ ]
+}

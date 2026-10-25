@@ -1,0 +1,38 @@
+{
+  "run_id": "integration-20261025T013456Z",
+  "input_kind": "real cat/dog images replayed through the actual DPDK pcap PMD",
+  "preparation": "Generated locally by the unmodified teammate Part 3 generator with seed 542 from the cached Lab7 microsoft/cats_vs_dogs test folders.",
+  "source_image_count": 16,
+  "source_images": "8 cat and 8 dog images; filenames and per-frame hashes in original_images.json",
+  "same_image_bytes_as_teammate_previous_run": false,
+  "note": "This is a new integration run. Part 3 input bytes differ from the teammate prior run, and the actual Part 4 DPDK receiver is rerun on these PCAPs. Python reference outputs are not used as Part 5 received inputs.",
+  "expected_source_sha256": {
+    "part3_packets/gen_pcap.py": "e1c4ac32cd25d1400e49f880832b76aab17d0800514d69c20bf7837c8835ebea",
+    "part3_packets/frame_format.py": "1de6123c99ce9c4f8f05c240ad7d09ebd87edfa5ea634031fad30e95f2b3719d",
+    "part4_dpdk/dpdk_rx.c": "c3c2ae17aed92e90458832a6d15ed45bd296873c45d8748079d9dc88f14d8a49",
+    "part4_dpdk/Makefile": "9e1ed89e49baa55b6994633d53eda4d2e0b3d480535817206094f72f8659c714",
+    "part5_classify/classify.py": "d72d3ee5327a267ea5b81a6f80be670737d95ae79abde1874406346aa38d0edd",
+    "part5_classify/frame_io.py": "ce67a98fd5adc6410f9ca8acd8ff020ef68d5c668468bd1ceba38d1920d88d99",
+    "part5_classify/run_part5.sh": "21b28a16cd0e66fff8b45e727c0227d6a5efcee3d7ac1474cbd923d3bf2c9696",
+    "part2_tensorrt/trt_runner.py": "1a822071233b4edaf43f5d08171821bc60ed88a4e229476d4b7dc6b00c7d756f"
+  },
+  "input_file_sha256": {
+    "original.bin": "fdc38ef142280a1cf1b5b24f9e401306a303326cbb4b1df65756f0c4ca1610a1",
+    "original.json": "1c729c97c28415914abd9a1d502b3dc1ae33047fca5e2f5ae10788b101cde787",
+    "images.pcap": "d178247ee9ba8d60f32a60ae656d8c8ea00488240253d7d3d6d429f73b928e61",
+    "images_shuffled.pcap": "ab3070eb8a4e2687f21b4adc10015fbea37bc7ea9585e1482e034e6104ecc74b",
+    "images_stress.pcap": "802306a0e8daf516b8bcf31d1b5d139eddac15ad215468f728472e922b72236f"
+  },
+  "actual_repository_commit": "500160c25fd66b125f6f799048a75e41a29d1f7f",
+  "dpdk_version": "21.11.9",
+  "actual_dpdk_receiver_run": true,
+  "received_file_sha256": {
+    "frames_rx_inorder.bin": "fdc38ef142280a1cf1b5b24f9e401306a303326cbb4b1df65756f0c4ca1610a1",
+    "frames_rx_inorder.bin.ids.json": "65c3f7149514f9fea4721ce22084c5d049002a6373f63392012eaf035caab020",
+    "frames_rx_shuffled.bin": "fdc38ef142280a1cf1b5b24f9e401306a303326cbb4b1df65756f0c4ca1610a1",
+    "frames_rx_shuffled.bin.ids.json": "65c3f7149514f9fea4721ce22084c5d049002a6373f63392012eaf035caab020",
+    "frames_rx_stress.bin": "fdc38ef142280a1cf1b5b24f9e401306a303326cbb4b1df65756f0c4ca1610a1",
+    "frames_rx_stress.bin.ids.json": "65c3f7149514f9fea4721ce22084c5d049002a6373f63392012eaf035caab020"
+  },
+  "gpu_run_completed": true
+}
