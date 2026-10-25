@@ -1,0 +1,85 @@
+# 2026-10-25T00:28:28Z node1 client
+$ env DOCA_GPUNETIO_LOG=6 /users/fengmaox/gpunetio/install/examples/gpunetio_verbs_write_bw -g 25:00.0 -d rocep65s0 -p 1 -c 10.10.1.1
+Sun Oct 25 00:28:28 2026 [INFO] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 256: create_verbs_resources(): Setting GPU device 0 at 25:00.0
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_gpunetio_sdk_wrapper.cpp]: 305: doca_gpu_sdk_wrapper_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_gpunetio.cpp]: 151: doca_gpu_create(): Use DOCA GPUNetIO open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_gpunetio_gdrcopy.cpp]: 214: doca_gpu_gdrcopy_is_supported(): GDRCopy usage is enabled
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_dev_sdk_wrapper.cpp]: 241: doca_verbs_sdk_wrapper_dev_open_from_pd(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_dev.cpp]: 94: doca_verbs_dev_open(): Use DOCA Verbs Dev open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_dev.cpp]: 106: doca_verbs_dev_open(): doca_verbs_dev_open=0x5a8518255490 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 1652: doca_verbs_sdk_wrapper_ah_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 3285: doca_verbs_ah_attr_create(): Use DOCA Verbs AH Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 3291: doca_verbs_ah_attr_create(): doca_verbs_verbs_ah_open=0x5a85182554c0 was created
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 1063: doca_verbs_comp_channel_create(): Use DOCA Verbs CQ Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 1069: doca_verbs_comp_channel_create(): doca_verbs_comp_channel_open=0x5a8518255510 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_cq_sdk_wrapper.cpp]: 351: doca_verbs_sdk_wrapper_cq_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 427: doca_verbs_cq_attr_create(): Use DOCA Verbs CQ Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 433: doca_verbs_cq_attr_create(): doca_verbs_cq_attr_open=0x5a85182555d0 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_umem_sdk_wrapper.cpp]: 244: doca_verbs_sdk_wrapper_umem_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_umem.cpp]: 179: doca_verbs_umem_create(): Use DOCA Verbs UMEM open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_umem.cpp]: 195: doca_verbs_umem_create(): doca_verbs_umem_open=0x5a8518256650 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_cq_sdk_wrapper.cpp]: 619: doca_verbs_sdk_wrapper_cq_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 765: doca_verbs_cq_create(): Use DOCA Verbs CQ open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 323: create(): Verbs cq 0x5a8518256700: Registering to comp channel 0x5a8518254c70
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 332: create(): DOCA IB Verbs CQ 0x5a8518256700: has been successfully created
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 771: doca_verbs_cq_create(): doca_verbs_cq_open=0x5a85182566e0 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_uar_sdk_wrapper.cpp]: 178: doca_verbs_sdk_wrapper_uar_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_uar.cpp]: 179: doca_verbs_uar_create(): Use DOCA Verbs UAR open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_uar.cpp]: 185: doca_verbs_uar_create(): doca_verbs_uar_open=0x5a85182568a0 was created
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_gpunetio_high_level.cpp]: 155: create_uar(): Created UAR with type NONCACHE_DEDICATED
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 746: doca_verbs_sdk_wrapper_qp_init_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1844: doca_verbs_qp_init_attr_create(): Use DOCA Verbs QP Init Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1850: doca_verbs_qp_init_attr_create(): doca_verbs_qp_init_attr_open=0x5a8518256b80 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_umem_sdk_wrapper.cpp]: 244: doca_verbs_sdk_wrapper_umem_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_umem.cpp]: 179: doca_verbs_umem_create(): Use DOCA Verbs UMEM open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_umem.cpp]: 195: doca_verbs_umem_create(): doca_verbs_umem_open=0x5a8518256fd0 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_umem_sdk_wrapper.cpp]: 244: doca_verbs_sdk_wrapper_umem_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_umem.cpp]: 179: doca_verbs_umem_create(): Use DOCA Verbs UMEM open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_umem.cpp]: 195: doca_verbs_umem_create(): doca_verbs_umem_open=0x5a8518258080 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 1869: doca_verbs_sdk_wrapper_qp_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 3583: doca_verbs_qp_create(): Use DOCA Verbs qp open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1693: create(): DOCA IB Verbs QP 0x5a8518258130: has been successfully created
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 3589: doca_verbs_qp_create(): doca_verbs_qp_open=0x5a8518258110 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 746: doca_verbs_sdk_wrapper_qp_init_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1844: doca_verbs_qp_init_attr_create(): Use DOCA Verbs QP Init Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1850: doca_verbs_qp_init_attr_create(): doca_verbs_qp_init_attr_open=0x5a85182584f0 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 1231: doca_verbs_sdk_wrapper_qp_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 2588: doca_verbs_qp_attr_create(): Use DOCA Verbs QP Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 2594: doca_verbs_qp_attr_create(): doca_verbs_qp_attr_open=0x5a8518258510 was created
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_gpunetio.cpp]: 1076: doca_gpu_verbs_export_qp(): Enabling CPU proxy mode
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_cq.cpp]: 939: doca_verbs_cq_set_cq_context(): DOCA open, setting cq_context 0x5a8518258310.
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_gpunetio_high_level.cpp]: 1285: doca_gpu_verbs_create_qp_hl(): doca_verbs_cq_set_cq_context set with context 0x5a8518258310
+Sun Oct 25 00:28:28 2026 [INFO] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 136: oob_verbs_connection_client_setup(): Socket created successfully
+Sun Oct 25 00:28:28 2026 [INFO] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 149: oob_verbs_connection_client_setup(): Connected with server successfully
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp_sdk_wrapper.cpp]: 1231: doca_verbs_sdk_wrapper_qp_attr_create(): Env var DOCA_SDK_LIB_PATH not set (null). DOCA SDK is not in use
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 2588: doca_verbs_qp_attr_create(): Use DOCA Verbs QP Attr open
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 2594: doca_verbs_qp_attr_create(): doca_verbs_qp_attr_open=0x5a85182a85e0 was created
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 891: rst2init(): DOCA IB Verbs QP 0x5a8518258130: has been successfully moved to Init state
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 443: query_roce_version(): roce_version = 0
+Sun Oct 25 00:28:28 2026 [WARNING] [src/doca_verbs_qp.cpp]: 1086: init2rtr(): verbs_qp_attr atomic_mode is set but attr_mask flag DOCA_VERBS_QP_ATTR_ATOMIC_MODE is not set
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1126: init2rtr(): DOCA IB Verbs QP 0x5a8518258130: has been successfully moved to RTR state
+Sun Oct 25 00:28:28 2026 [INFO] [src/doca_verbs_qp.cpp]: 1183: rtr2rts(): DOCA IB Verbs QP 0x5a8518258130: has been successfully moved to RTS state
+Sun Oct 25 00:28:28 2026 [INFO] [/users/fengmaox/gpunetio/examples/verbs_common.cpp]: 589: connect_verbs_qp(): QP has been successfully connected and ready to use
+Sun Oct 25 00:28:28 2026 [INFO] [gpunetio_verbs_write_bw_sample.cpp]: 383: verbs_client(): Launching gpunetio_verbs_write_bw client kernel with 1 CUDA Block, 512 CUDA threads, 2048 total number of iterations, 4 iterations per cuda thread, 1 NIC handler
+Sun Oct 25 00:28:29 2026 [INFO] [gpunetio_verbs_write_bw_main.cpp]: 119: main(): Sample finished successfully
+------------------------------------------------------------------------------------
+ #bytes     #iterations    BW average[Gbps]   MsgRate[Mpps]    CUDA Kernel[ms]
+------------------------------------------------------------------------------------
+Thread CPU proxy progress is running... 0
+ 1          	2048              0.034483            4.310345            0.475136
+ 64         	2048              2.311513            4.514673            0.453632
+ 128        	2048              4.581656            4.474273            0.457728
+ 256        	2048              9.082040            4.434590            0.461824
+ 512        	2048              17.731602            4.329004            0.473088
+ 1024       	2048              33.851240            4.132232            0.495616
+ 2048       	2048              43.748999            2.670227            0.766976
+ 4096       	2048              52.095390            1.589825            1.288192
+ 8192       	2048              53.324653            0.813670            2.516992
+ 16384      	2048              57.664762            0.439947            4.655104
+ 32768      	2048              58.157294            0.221852            9.231360
+ 65536      	2048              46.520676            0.088731            23.080959
+ 131072     	2048              55.322149            0.052759            38.817791
+ 262144     	2048              55.995728            0.026701            76.701698
+ 524288     	2048              55.998345            0.013351            153.396225
+ 1048576    	2048              56.034255            0.006680            306.595825
+(exit 0)

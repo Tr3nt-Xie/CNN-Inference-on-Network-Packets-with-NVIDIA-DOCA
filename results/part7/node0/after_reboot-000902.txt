@@ -1,0 +1,90 @@
+== 2026-10-25T00:09:02Z node0
+== kernel cmdline
+BOOT_IMAGE=/boot/vmlinuz-6.8.0-147-generic root=UUID=ccb0832d-c80e-430f-b248-d117889f1992 ro console=ttyS0,115200 emulabcnet=e4:3d:1a:6e:61:50 amd_iommu=off iommu=off
+IOMMU off: OK
+== nvidia-smi
+name, driver_version, pci.bus_id
+NVIDIA A30, 580.196.07, 00000000:25:00.0
+Persistence mode is already Enabled for GPU 00000000:25:00.0.
+All done.
+== hugepages
+2048
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+FileHugePages:         0 kB
+== GDRCopy v2.5.2
+Note: switching to 'c91ad9f178e5fb729fc5b6dc62a77c3bb364d6c9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+/opt/mellanox/gdrcopy/src/libgdrapi.so
+/opt/mellanox/gdrcopy/src/libgdrapi.so.2
+/opt/mellanox/gdrcopy/src/libgdrapi.so.2.5
+INFO: driver major is 508 
+INFO: creating /dev/gdrdrv inode
+gdrdrv                 28672  0
+nvidia              14450688  8 nvidia_uvm,gdrdrv,nvidia_modeset
+== ACS off on all PCIe bridges (setpci method from the GPUNetIO install guide)
+ACS cleared on 71 devices
+== Step 7.4 hardware
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eno1             DOWN           
+eno2             DOWN           
+eno33np0         UP             128.105.146.27/22 metric 1024 fe80::e63d:1aff:fe6e:6150/64 
+eno34np1         DOWN           
+enp65s0np0       UP             10.10.1.1/24 fe80::966d:aeff:fe61:9b42/64 
+enp226s0f0np0    DOWN           
+enp226s0f1np1    DOWN           
+docker0          DOWN           172.17.0.1/16 
+10.10.1.x interface: enp65s0np0  NIC PCI: 41:00.0  RDMA device: rocep65s0  GPU PCI: 25:00.0
+driver: mlx5_core
+version: 6.8.0-147-generic
+firmware-version: 20.43.1014 (DEL0000000010)
+expansion-rom-version: 
+bus-info: 0000:41:00.0
+supports-statistics: yes
+supports-test: yes
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: yes
+    device          	   node GUID
+    ------          	----------------
+    rocep65s0       	946dae0300619b42
+link rocep65s0/1 state ACTIVE physical_state LINK_UP netdev enp65s0np0 
+25:00.0 3D controller: NVIDIA Corporation GA100GL [A30 PCIe] (rev a1)
+41:00.0 Ethernet controller: Mellanox Technologies MT28908 Family [ConnectX-6]
+e2:00.0 Ethernet controller: Mellanox Technologies MT42822 BlueField-2 integrated ConnectX-6 Dx network controller (rev 01)
+e2:00.1 Ethernet controller: Mellanox Technologies MT42822 BlueField-2 integrated ConnectX-6 Dx network controller (rev 01)
+e2:00.2 DMA controller: Mellanox Technologies MT42822 BlueField-2 SoC Management Interface (rev 01)
+6.8.0-147-generic
+	[4mGPU0	NIC0	CPU Affinity	NUMA Affinity	GPU NUMA ID[0m
+GPU0	 X 	NODE	0-15,32-47	0		N/A
+NIC0	NODE	 X 				
+
+Legend:
+
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  NV#  = Connection traversing a bonded set of # NVLinks
+
+NIC Legend:
+
+  NIC0: rocep65s0
+
