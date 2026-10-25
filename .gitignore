@@ -24,3 +24,8 @@ id_*
 
 # Generated test data (Parts 3-5)
 data/
+
+# Presentation videos (shared separately, not in the repo)
+*.MOV
+*.mov
+*.mp4
